@@ -83,11 +83,33 @@ const Sidebar = () => {
         isTablet && setIsOpen(false);
     }, [pathname])
 
+    const mainMenusList = [
+        {
+            name: "all apps",
+            path: "/",
+            icon: AiOutlineAppstore
+        },
+        {
+            name: "authentication",
+            path: "/authentication",
+            icon: BsPerson
+        },
+        {
+            name: "storage",
+            path: "/storage",
+            icon: HiOutlineDatabase
+        }
+    ]
+
     const subMenusList = [
         {
             name: "build",
             icon: RiBuilding3Line,
             menus: ["auth", "app settings", "storage", "hosting"],
+        },
+        {
+            name: "gacha",
+            icon: RiBuilding3Line,
         },
         {
             name: "analytics",
@@ -125,27 +147,19 @@ const Sidebar = () => {
                 <div className="flex flex-col h-full">
                     {/* first */}
                     <ul className="whitespace-pre px-2.5 text-[0.9rem] py-5 flex flex-col gap-1 font-medium overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100 h-[70%] md:h-[68%]">
-                        <li>
-                            <NavLink to="/" className="link">
-                                <AiOutlineAppstore size={23} className="min-w-max" />
-                                {/* max-content : nội dung trong thẻ này sẽ được đẩy lên trong 1 dòng -> chữ bị thừa phải kéo màn hình mới thấy */}
-                                All Apps
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/authentication" className="link">
-                                <BsPerson size={23} className="min-w-max" />
-                                {/* max-content : nội dung trong thẻ này sẽ được cố định trong 1 dòng -> chữ bị thừa phải kéo màn hình mới thấy */}
-                                Authentication
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/storage" className="link">
-                                <HiOutlineDatabase size={23} className="min-w-max" />
-                                {/* max-content : nội dung trong thẻ này sẽ được đẩy lên trong 1 dòng -> chữ bị thừa phải kéo màn hình mới thấy */}
-                                Storage
-                            </NavLink>
-                        </li>
+                        {
+                            mainMenusList?.map((menu, index) => {
+                                return (
+                                    <li>
+                                        <NavLink to={menu.path} className="link">
+                                            <menu.icon size={23} className="min-w-max" />
+                                            {/* max-content : nội dung trong thẻ này sẽ được đẩy lên trong 1 dòng -> chữ bị thừa phải kéo màn hình mới thấy */}
+                                            <p className="capitalize flex-1">{menu.name}</p>
+                                        </NavLink>
+                                    </li>
+                                )
+                            })
+                        }
 
                         {/* with submenu */}
                         {/* mobile view most show submenu */}
@@ -170,7 +184,7 @@ const Sidebar = () => {
 
                         <li>
                             <NavLink to="/settings" className="link">
-                                <BsPerson size={23} className="min-w-max" />
+                                <SlSettings size={23} className="min-w-max" />
                                 {/* max-content : nội dung trong thẻ này sẽ được đẩy lên trong 1 dòng -> chữ bị thừa phải kéo màn hình mới thấy */}
                                 Settings
                             </NavLink>

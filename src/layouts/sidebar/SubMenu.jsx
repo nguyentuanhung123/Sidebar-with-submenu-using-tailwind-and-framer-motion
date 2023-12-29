@@ -13,14 +13,14 @@ const SubMenu = ({ data }) => {
     return (
         <>
             <li
-                className={`link ${pathname.includes(data.name) && "text-blue-600"}`}
+                className={`link ${pathname.includes(data.name) && "active"}`}
                 onClick={() => setSubMenuOpen(!subMenuOpen)}
             >
                 {/* Dynamic icons */}
                 <data.icon size={23} className="min-w-max" />
 
-                <p className="capitalize flex-1">{data.name}</p>
-                <IoIosArrowDown className={`${subMenuOpen && 'rotate-180'} duration-200`} />
+                {data.menus ? <p className="capitalize flex-1">{data.name}</p> : <NavLink to={`/${data.name}`} className="capitalize flex-1">{data.name}</NavLink>}
+                {data.menus ? <IoIosArrowDown className={`${subMenuOpen && 'rotate-180'} duration-200`} /> : null}
             </li>
             <motion.ul
                 animate={

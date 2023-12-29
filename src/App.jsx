@@ -6,6 +6,7 @@ import Authentication from "./pages/Authentication";
 import Build from "./pages/Build";
 import Settings from "./pages/Settings";
 import Storage from "./pages/Storage";
+import Gacha from "./pages/Gacha";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/authentication" element={<Authentication />} />
           <Route path="/storage" element={<Storage />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/gacha" element={<Gacha />} />
           <Route path="/build/:bID" element={<Build />} />
           <Route path="/analytics/:aID" element={<Analytics />} />
         </Routes>
