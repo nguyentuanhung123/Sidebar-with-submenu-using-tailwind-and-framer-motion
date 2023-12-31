@@ -32,18 +32,18 @@ const SignUp = () => {
 
     return (
         <div className="h-screen grid place-items-center bg-gray-50">
-            <Card color="transparent" shadow={false}>
-                <Typography variant="h4" color="blue-gray">
+            <Card color="transparent" shadow={false} className="border bg-[#fff] w-full max-w-[650px] p-[20px]">
+                <Typography variant="h4" color="blue-gray" className="text-center">
                     Sign Up
                 </Typography>
-                <Typography color="gray" className="mt-1 font-normal">
+                <Typography color="gray" className="mt-1 font-normal text-center mb-[10px]">
                     Nice to meet you! Enter your details to register.
                 </Typography>
                 <form
-                    className="mb-4 w-[500px] grid grid-cols-2 gap-6"
+                    className="mb-4 w-full grid grid-cols-1 md:grid-cols-2 gap-6"
                     onSubmit={handleSubmit(onSubmit)}
                 >
-                    <div>
+                    <div className="col-span-2 md:col-span-1">
                         <Controller
                             name="username"
                             rules={{
@@ -68,7 +68,7 @@ const SignUp = () => {
                             )
                         }
                     </div>
-                    <div>
+                    <div className="col-span-2 md:col-span-1">
                         <Controller
                             name="email"
                             control={control}
@@ -95,7 +95,7 @@ const SignUp = () => {
                             )
                         }
                     </div>
-                    <div>
+                    <div className="col-span-2 md:col-span-1">
                         <Controller
                             name="domain"
                             control={control}
@@ -123,7 +123,7 @@ const SignUp = () => {
                     </div>
                     {
                         domain === 'others' && (
-                            <div>
+                            <div className="col-span-2 md:col-span-1">
                                 <Controller
                                     name="otherdomainname"
                                     control={control}
@@ -135,7 +135,8 @@ const SignUp = () => {
                                             {...field}
                                             size="lg"
                                             label="Type Here"
-                                            error={Boolean(errors?.otherdomainname?.message)} />
+                                            error={Boolean(errors?.otherdomainname?.message)}
+                                        />
                                     )}
                                 />
                                 {
@@ -146,7 +147,7 @@ const SignUp = () => {
                             </div>
                         )
                     }
-                    <div>
+                    <div className="col-span-2 md:col-span-1">
                         <Controller
                             name="password"
                             control={control}
@@ -172,7 +173,7 @@ const SignUp = () => {
                             )
                         }
                     </div>
-                    <div>
+                    <div className="col-span-2 md:col-span-1">
                         <Controller
                             name="confirmpassword"
                             control={control}
@@ -195,7 +196,7 @@ const SignUp = () => {
                             )
                         }
                     </div>
-                    <div className="col-span-2 grid grid-cols-2 gap-3">
+                    <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-3">
                         <Button type="reset" variant="outlined" onClick={() => reset()}>Reset</Button>
                         <Button type="submit">Create Account</Button>
                     </div>
