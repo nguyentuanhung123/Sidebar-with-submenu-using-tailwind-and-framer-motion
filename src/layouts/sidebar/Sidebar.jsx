@@ -108,7 +108,7 @@ const Sidebar = () => {
             menus: ["auth", "app settings", "storage", "hosting"],
         },
         {
-            name: "gacha",
+            name: "signup",
             icon: RiBuilding3Line,
         },
         {
@@ -150,7 +150,7 @@ const Sidebar = () => {
                         {
                             mainMenusList?.map((menu, index) => {
                                 return (
-                                    <li>
+                                    <li key={menu.name}>
                                         <NavLink to={menu.path} className="link">
                                             <menu.icon size={23} className="min-w-max" />
                                             {/* max-content : nội dung trong thẻ này sẽ được đẩy lên trong 1 dòng -> chữ bị thừa phải kéo màn hình mới thấy */}
