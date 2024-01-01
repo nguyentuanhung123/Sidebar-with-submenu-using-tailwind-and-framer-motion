@@ -112,6 +112,18 @@ const Sidebar = () => {
             icon: RiBuilding3Line,
         },
         {
+            name: "datatable",
+            icon: RiBuilding3Line,
+        },
+        {
+            name: "reacttable",
+            icon: RiBuilding3Line,
+        },
+        {
+            name: "sortingtable",
+            icon: RiBuilding3Line,
+        },
+        {
             name: "analytics",
             icon: TbReportAnalytics,
             menus: ["dashboard", "realtime", "events"],

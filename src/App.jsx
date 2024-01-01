@@ -8,6 +8,9 @@ import Settings from "./pages/Settings";
 import Storage from "./pages/Storage";
 import Gacha from "./pages/Gacha";
 import SignUp from "./pages/SignUp";
+import DataTable from "./pages/DataTable";
+import ReactTable from "./pages/ReactTable";
+import SortingTable from "./components/SortingTable";
 
 const App = () => {
   return (
@@ -19,6 +22,9 @@ const App = () => {
           <Route path="/storage" element={<Storage />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/datatable" element={<DataTable />} />
+          <Route path="/reacttable" element={<ReactTable />} />
+          <Route path="/sortingtable" element={<SortingTable />} />
           <Route path="/build/:bID" element={<Build />} />
           <Route path="/analytics/:aID" element={<Analytics />} />
         </Routes>
