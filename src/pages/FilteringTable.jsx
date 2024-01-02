@@ -1,4 +1,4 @@
-
+// Tutorial - 8
 // B1 : Tạo file GlobalFilter.jsx
 // B2 : import {useGlobalFilter} from "react-table";
 // B3 : Bổ sung useGlobalFilter trong tableInstance
@@ -6,8 +6,17 @@
 // B5 : Bố sung bên dưới const {globalFilter} = state
 
 
+// Tutorial - 9
+// B1 : Tạo file ColumnFilter.jsx và chỉnh sửa
+// B2 : import {useFilters} from "react-table";
+// B3 : Bổ sung useFilters trong tableInstance
+// B4 : Bổ sung trong thẻ th :  <div>{column.canFilter ? column.render('Filter') : null}</div>
+// B5 : Vào file column.js :  import ColumnFilter from '../pages/ColumnFilter';
+// B5 : Sửa lại file column.js trong hàm COLUMNS bằng cahs thêm Filter: ColumnFilter ngay duói accessor
+
+
 import React, { useMemo } from "react";
-import { useTable, useGlobalFilter } from "react-table";
+import { useTable, useGlobalFilter, useFilters } from "react-table";
 import MOCK_DATA from '../components/MOCK_DATA.json';
 import { COLUMNS, GROUPED_COLUMS } from '../components/columns.js';
 import '../components/table.css'
@@ -26,7 +35,9 @@ const FilteringTable = () => {
         {
             columns,
             data
-        }, useGlobalFilter
+        },
+        useFilters,
+        useGlobalFilter
     )
 
     const {
@@ -58,6 +69,7 @@ const FilteringTable = () => {
                                             {
                                                 column.render('Header')
                                             }
+                                            <div>{column.canFilter ? column.render('Filter') : null}</div>
                                         </th>
                                     ))
                                 }
