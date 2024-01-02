@@ -1,7 +1,13 @@
 
+//React-Table-Tutorial - 6 - Sorting
 // B1 : import useSortBy
 // B2 : Add useSortBy vào tableInstance
-// B2 : Add column.getSortByToggleProps() trong thẻ th
+// B3 : Add column.getSortByToggleProps() trong thẻ 
+
+//React-Table-Tutorial - 7 - Sorting and Formatting
+// B1 : npm i date-fns
+// B2 : Vào column.js và import {format} from 'date-fns
+// B3 : Di tới phần Date of Birth và Bổ sung bên dưới accessor là Cell : ({value}) => {return format(new Date(value), 'dd/MM/yyy')}
 
 import React, { useMemo } from "react";
 import { useTable, useSortBy } from "react-table";

@@ -10,7 +10,7 @@ import Gacha from "./pages/Gacha";
 import SignUp from "./pages/SignUp";
 import DataTable from "./pages/DataTable";
 import ReactTable from "./pages/ReactTable";
-import SortingTable from "./components/SortingTable";
+import SortingTable from "./pages/SortingTable";
 
 const App = () => {
   return (

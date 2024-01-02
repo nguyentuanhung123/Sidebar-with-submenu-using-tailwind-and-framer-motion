@@ -134,15 +134,17 @@ const Sidebar = () => {
         <>
             <div
                 onClick={() => setIsOpen(false)}
-                className={`md:hidden fixed inset-0 max-h-screen z-[998] bg-black/50 
-                ${isOpen ? "block" : "hidden"}`}>
+                className={`fixed inset-0 max-h-screen z-[998] bg-black/50 
+                ${isOpen ? "block" : "hidden"}
+                ${isTablet ? "inline-block" : "hidden"}`}>
             </div>
             <motion.div
                 variants={Sidebar_animation}
                 initial={{ x: isTablet ? -250 : 0 }}
                 animate={isOpen ? "open" : "closed"}
-                className="bg-white text-gray shadow-xl z-[999] w-[16rem]
-                max-w-[16rem] h-screen overflow-hidden md:relative fixed ">
+                className={`bg-white text-gray shadow-xl z-[999] w-[16rem]
+                max-w-[16rem] h-screen overflow-hidden
+                ${isTablet ? "fixed" : "relative"}`}>
 
                 {/* Logo */}
                 <div className="flex items-center gap-2.5 font-medium border-b py-3 border-slate-300 mx-3">
@@ -240,7 +242,7 @@ const Sidebar = () => {
                     <IoIosArrowBack size={25} />
                 </motion.div>
             </motion.div>
-            <div className="m-3 md:hidden" onClick={() => setIsOpen(true)}>
+            <div className={`m-3 ${isTablet ? "inline-block" : "hidden"}`} onClick={() => setIsOpen(true)}>
                 <MdMenu size={25} />
             </div>
         </>
