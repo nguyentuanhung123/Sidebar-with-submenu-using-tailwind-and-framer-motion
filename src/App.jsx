@@ -11,6 +11,7 @@ import SignUp from "./pages/SignUp";
 import DataTable from "./pages/DataTable";
 import ReactTable from "./pages/ReactTable";
 import SortingTable from "./pages/SortingTable";
+import FilteringTable from "./pages/FilteringTable";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/datatable" element={<DataTable />} />
           <Route path="/reacttable" element={<ReactTable />} />
           <Route path="/sortingtable" element={<SortingTable />} />
+          <Route path="/filteringtable" element={<FilteringTable />} />
           <Route path="/build/:bID" element={<Build />} />
           <Route path="/analytics/:aID" element={<Analytics />} />
         </Routes>
