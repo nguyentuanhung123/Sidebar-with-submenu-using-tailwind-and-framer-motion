@@ -12,6 +12,8 @@ import DataTable from "./pages/DataTable";
 import ReactTable from "./pages/ReactTable";
 import SortingTable from "./pages/SortingTable";
 import FilteringTable from "./pages/FilteringTable";
+import FormatDate from "./pages/FormatDate";
+import TestTable from "./pages/TestTable";
 
 const App = () => {
   return (
@@ -27,6 +29,8 @@ const App = () => {
           <Route path="/reacttable" element={<ReactTable />} />
           <Route path="/sortingtable" element={<SortingTable />} />
           <Route path="/filteringtable" element={<FilteringTable />} />
+          <Route path="/formatdate" element={<FormatDate />} />
+          <Route path="/testtable" element={<TestTable />} />
           <Route path="/build/:bID" element={<Build />} />
           <Route path="/analytics/:aID" element={<Analytics />} />
         </Routes>
