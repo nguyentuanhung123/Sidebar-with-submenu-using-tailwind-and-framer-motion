@@ -11,9 +11,9 @@
 
 import React, { useMemo } from "react";
 import { useTable, useSortBy } from "react-table";
+
 import MOCK_DATA from '../components/MOCK_DATA.json';
 import { COLUMNS, GROUPED_COLUMS } from '../components/columns.js';
-import '../components/table.css'
 
 import logoUp from '../images/emoji_u1f53c.png';
 import logoDown from '../images/emoji_u1f53d.png'
@@ -47,14 +47,14 @@ const SortingTable = () => {
     // const {}
 
     return (
-        <table {...getTableProps()}>
-            <thead>
+        <table {...getTableProps()} className="border border-gray-700 w-full text-left">
+            <thead className="bg-indigo-600">
                 {
                     headerGroups.map((headerGroup) => (
                         <tr {...headerGroup.getHeaderGroupProps()}>
                             {
                                 headerGroup.headers.map((column) => (
-                                    <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                                    <th {...column.getHeaderProps(column.getSortByToggleProps())} className="capitalize px-3.5 py-2">
                                         {
                                             column.render('Header')
                                         }
@@ -72,13 +72,13 @@ const SortingTable = () => {
             </thead>
             <tbody {...getTableBodyProps()}>
                 {
-                    rows.map((row) => {
+                    rows.map((row, i) => {
                         prepareRow(row)
                         return (
-                            <tr {...row.getRowProps()}>
+                            <tr {...row.getRowProps()} className={`${i % 2 === 0 ? 'bg-red-900' : 'bg-yellow-800'}`}>
                                 {
                                     row.cells.map((cell) => {
-                                        return <td {...cell.getCellProps()}>
+                                        return <td {...cell.getCellProps()} className="px-3.5 py-2">
                                             {cell.render('Cell')}
                                         </td>
                                     })

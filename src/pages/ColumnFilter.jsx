@@ -5,9 +5,9 @@ const ColumnFilter = ({ column }) => {
     const { filterValue, setFilter } = column;
 
     return (
-        <span>
+        <span className="flex gap-[8px]">
             Search: {' '}
-            <input className="text-[#000]" value={filterValue || ''}
+            <input className="text-[#000] flex-1" value={filterValue || ''}
                 onChange={(e) => setFilter(e.target.value)} />
         </span>
     )
