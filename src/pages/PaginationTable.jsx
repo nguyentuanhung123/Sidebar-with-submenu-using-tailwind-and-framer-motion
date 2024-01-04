@@ -17,6 +17,10 @@
 // B3 : Bổ sung 1 thẻ span để Go to page
 // B4 : Bổ sung initialSate: { pageIndex : 0} ngay dưới data trong tableInstance
 
+// Tutorail - 13 - Pagination (Page size)
+// B1 : Bổ sung setPageSize ngay dưới pageCount
+// B2 : const { pageIndex, pageSize } = state
+// B3 : Bố sung thẻ <select value={pageSize}></select> dưới thẻ span Go to page
 
 
 import React, { useMemo } from "react";
@@ -75,11 +79,12 @@ const PaginationTable = () => {
         pageOptions,
         gotoPage,
         pageCount,
+        setPageSize,
         state,
         prepareRow // <-- This is the important part
     } = tableInstance
 
-    const { pageIndex } = state
+    const { pageIndex, pageSize } = state
 
     const handleEdit = (id) => {
         // Implement your edit logic here
@@ -94,6 +99,8 @@ const PaginationTable = () => {
     // console.log('State : ', state); => {pageSize : 10, pageIndex: 0 , ....}
 
     // console.log("Page options : ", pageOptions); => 24
+
+    // console.log("Page count : ", pageCount); => 25
 
     return (
         <>
@@ -147,6 +154,17 @@ const PaginationTable = () => {
                             gotoPage(pageNumber)
                         }} />
                 </span>
+                <select value={pageSize} onChange={(e) => setPageSize(Number(e.target.value))}>
+                    {
+                        [5, 10, 15].map((pageSize) => {
+                            return (
+                                <option key={pageSize} value={pageSize}>
+                                    Show {pageSize}
+                                </option>
+                            )
+                        })
+                    }
+                </select>
                 <Button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</Button>
                 <Button onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</Button>
                 <Button onClick={() => nextPage()} disabled={!canNextPage}>Next</Button>
