@@ -11,6 +11,12 @@
 // B10 : Bổ sung const { pageIndex } = state
 // B11 : Bổ sung thẻ span cùng cấp với 2 button và ghi content trong đó
 
+// Tutorail - 12 -  Pagination (Goto Page)
+// B1 : Bổ sung gotoPage, pageCount ngay dưới pageOptions
+// B2 : Bổ sung 2 button {'<<'} và {'>>'} để có thể đi tới đầu hoặc cuối danh sách
+// B3 : Bổ sung 1 thẻ span để Go to page
+// B4 : Bổ sung initialSate: { pageIndex : 0} ngay dưới data trong tableInstance
+
 
 
 import React, { useMemo } from "react";
@@ -51,7 +57,8 @@ const PaginationTable = () => {
     const tableInstance = useTable(
         {
             columns,
-            data
+            data,
+            initialState: { pageIndex: 0 }
         },
         usePagination
     )
@@ -66,6 +73,8 @@ const PaginationTable = () => {
         canNextPage,
         canPreviousPage,
         pageOptions,
+        gotoPage,
+        pageCount,
         state,
         prepareRow // <-- This is the important part
     } = tableInstance
@@ -81,6 +90,10 @@ const PaginationTable = () => {
         // Implement your delete logic here
         alert(`Delete action for id: ${id}`);
     };
+
+    // console.log('State : ', state); => {pageSize : 10, pageIndex: 0 , ....}
+
+    // console.log("Page options : ", pageOptions); => 24
 
     return (
         <>
@@ -126,8 +139,18 @@ const PaginationTable = () => {
                         {pageIndex + 1} of {pageOptions.length}
                     </strong>{' '}
                 </span>
+                <span>
+                    | Go to page: {' '}
+                    <input type="number" defaultValue={pageIndex + 1} className="w-[50px]"
+                        onChange={(e) => {
+                            const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0
+                            gotoPage(pageNumber)
+                        }} />
+                </span>
+                <Button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</Button>
                 <Button onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</Button>
                 <Button onClick={() => nextPage()} disabled={!canNextPage}>Next</Button>
+                <Button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</Button>
             </div>
         </>
     )
