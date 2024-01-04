@@ -128,6 +128,10 @@ const Sidebar = () => {
             icon: RiBuilding3Line,
         },
         {
+            name: "paginationtable",
+            icon: RiBuilding3Line,
+        },
+        {
             name: "formatdate",
             icon: RiBuilding3Line,
         },
