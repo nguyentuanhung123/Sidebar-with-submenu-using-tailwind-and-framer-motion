@@ -1,9 +1,10 @@
 // Tutorial - 8
 // B1 : Tạo file GlobalFilter.jsx
-// B2 : import {useGlobalFilter} from "react-table";
+// B2 : import { useGlobalFilter } from "react-table";
 // B3 : Bổ sung useGlobalFilter trong tableInstance
 // B4 : Bố sung state, setGlobalFilter ở bên dưới 
-// B5 : Bố sung bên dưới const {globalFilter} = state
+// B5 : Bố sung bên dưới const { globalFilter } = state
+// B6 : Thêm component <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
 
 
 // Tutorial - 9
@@ -20,10 +21,14 @@
 // Vào column.js bổ sung : disableFilters: true ở dưới Filter : ColumnFilter => Không còn thẻ input trong cột id
 
 // Vấn đề 2 : Ta đang có Filter: ColumnFilter, ở mỗi object trong column.js => Ta có thể rút gọn lại
-// B1 : import ColumnFilter from "./ColumnFilter.jsx";
+// B1 : import ColumnFilter from "./ColumnFilter.jsx" ở trong file này;
 // B2 : Bổ sung const defaultColumn = useMemo(() => { return { Filter: ColumnFilter } } , []) trong file này
 // B3 : Bổ sung defaultColumn trong tableInstance ngay bên dưới data
 // B4 : Xoá hết Filter: ColumnFilter ở mỗi object => Các cột vẫn còn thẻ input => thành công
+
+// Vấn đề 3 : Khi ta sử dụng Global Search để tìm thì nó sẽ hiện thị rất nhanh , lúc này vẫn ổn nhưng nếu ta có hàng ngàn data thì sẽ không tốt về mặt hiệu suất
+// Giải pháp : Debounce your own change event in the filter 
+// Vào file GlobalFilter.jsx để sửa
 
 
 import React, { useMemo } from "react";

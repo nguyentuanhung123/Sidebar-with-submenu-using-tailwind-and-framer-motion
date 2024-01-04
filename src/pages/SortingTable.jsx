@@ -2,7 +2,7 @@
 //React-Table-Tutorial - 6 - Sorting
 // B1 : import useSortBy
 // B2 : Add useSortBy vào tableInstance
-// B3 : Add column.getSortByToggleProps() trong thẻ 
+// B3 : Add column.getSortByToggleProps() trong thẻ th
 
 //React-Table-Tutorial - 7 - Sorting and Formatting
 // B1 : npm i date-fns
@@ -17,6 +17,11 @@ import { COLUMNS, GROUPED_COLUMS } from '../components/columns.js';
 
 import logoUp from '../images/emoji_u1f53c.png';
 import logoDown from '../images/emoji_u1f53d.png'
+
+//icons
+import { FaSort } from "react-icons/fa";
+import { FaSortUp } from "react-icons/fa";
+import { FaSortDown } from "react-icons/fa6";
 
 const SortingTable = () => {
     // đoạn code chỉ thực hiện 1 lần duy nhất khi components được mount, nó sẽ không thực thi lại khi components bị re-render lại
@@ -54,13 +59,22 @@ const SortingTable = () => {
                         <tr {...headerGroup.getHeaderGroupProps()}>
                             {
                                 headerGroup.headers.map((column) => (
-                                    <th {...column.getHeaderProps(column.getSortByToggleProps())} className="capitalize px-3.5 py-2">
+                                    <th {...column.getHeaderProps(column.getSortByToggleProps())} className="capitalize px-3.5 py-2 text-center">
                                         {
                                             column.render('Header')
                                         }
                                         <span>
+                                            {/* Mặc định là không sắp xếp */}
+                                            {/* Khi ta click lần đầu nó sẽ tăng theo bảng chữ cái hoặc số và icon up sẽ được hiện thị */}
+                                            {/* Thứ tự mặc định : no -> up -> down -> no -> ... */}
                                             {
-                                                column.isSorted ? (column.isSortedDesc ? <img src={logoDown} className="w-[18px] h-[18px] inline-block ml-[8px]" /> : <img src={logoUp} className="w-[18px] h-[18px] inline-block ml-[8px]" />) : ''
+                                                column.isSorted ? (
+                                                    column.isSortedDesc ? (
+                                                        <FaSortDown className="w-[18px] h-[18px] inline-block ml-[8px]" />
+                                                    ) : (
+                                                        <FaSortUp className="w-[18px] h-[18px] inline-block ml-[8px]" />
+                                                    )
+                                                ) : (<FaSort className="w-[18px] h-[18px] inline-block ml-[8px]" />)
                                             }
                                         </span>
                                     </th>

@@ -90,10 +90,11 @@ const TestTable = () => {
 
     const handleEdit = (id) => {
         // Implement your edit logic here
-        alert(`Edit action for id: ${id}`);
+        alert(`Edit action for id: ${id} , `);
+        // console.log("Employee : ", employee[id]);
     };
 
-    //Login Popup delete
+    //Logic Popup delete
 
     const closeDeleteModal = () => {
         setPopupDelete({
@@ -185,7 +186,11 @@ const TestTable = () => {
                             return (
                                 <tr {...row.getRowProps()} key={row.id} className={`${i % 2 === 0 ? 'bg-red-900' : 'bg-yellow-800'}`}>
                                     {row.cells.map((cell, columnIndex) => (
-                                        <td {...cell.getCellProps()} key={columnIndex} className="px-3.5 py-2">{cell.render('Cell')}</td>
+                                        <td {...cell.getCellProps()} key={columnIndex} className="px-3.5 py-2">
+                                            {
+                                                cell.render('Cell')
+                                            }
+                                        </td>
                                     ))}
                                 </tr>
                             );

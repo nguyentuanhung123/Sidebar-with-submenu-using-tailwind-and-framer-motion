@@ -47,7 +47,7 @@ const ReactTable = () => {
         headerGroups,
         footerGroups,
         rows,
-        prepareRow
+        prepareRow // <-- This is the important part
     } = tableInstance
 
     const handleEdit = (id) => {
@@ -82,7 +82,7 @@ const ReactTable = () => {
             <tbody {...getTableBodyProps()}>
                 {
                     rows.map((row, i) => {
-                        prepareRow(row);
+                        prepareRow(row); // <-- This prepares the row for rendering
                         return (
                             <tr {...row.getRowProps()} className={`${i % 2 === 0 ? 'bg-red-900' : 'bg-yellow-800'} hover:bg-[#ccc]`}>
                                 {row.cells.map((cell) => (

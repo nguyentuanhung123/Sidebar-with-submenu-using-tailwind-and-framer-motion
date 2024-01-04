@@ -14,6 +14,7 @@ import SortingTable from "./pages/SortingTable";
 import FilteringTable from "./pages/FilteringTable";
 import FormatDate from "./pages/FormatDate";
 import TestTable from "./pages/TestTable";
+import TodoBeginnerWrapper from "./pages/TodoBeginger/TodoBeginnerWrapper.jsx";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/filteringtable" element={<FilteringTable />} />
           <Route path="/formatdate" element={<FormatDate />} />
           <Route path="/testtable" element={<TestTable />} />
+          <Route path="/todobeginner" element={<TodoBeginnerWrapper />} />
           <Route path="/build/:bID" element={<Build />} />
           <Route path="/analytics/:aID" element={<Analytics />} />
         </Routes>
