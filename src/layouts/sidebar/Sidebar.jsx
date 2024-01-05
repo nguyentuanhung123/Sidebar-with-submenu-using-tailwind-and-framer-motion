@@ -144,6 +144,10 @@ const Sidebar = () => {
             icon: RiBuilding3Line,
         },
         {
+            name: "updatetodo",
+            icon: RiBuilding3Line,
+        },
+        {
             name: "analytics",
             icon: TbReportAnalytics,
             menus: ["dashboard", "realtime", "events"],
