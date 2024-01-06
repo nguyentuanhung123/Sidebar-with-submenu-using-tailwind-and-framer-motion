@@ -17,6 +17,7 @@ import TestTable from "./pages/TestTable";
 import TodoBeginnerWrapper from "./pages/TodoBeginger/TodoBeginnerWrapper.jsx";
 import PaginationTable from "./pages/PaginationTable.jsx";
 import UpdateTodo from "./pages/UpdateTodo/UpdateTodo.jsx";
+import RowSelection from "./pages/RowSelection.jsx";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/sortingtable" element={<SortingTable />} />
           <Route path="/filteringtable" element={<FilteringTable />} />
           <Route path="/paginationtable" element={<PaginationTable />} />
+          <Route path="/rowselection" element={<RowSelection />} />
           <Route path="/formatdate" element={<FormatDate />} />
           <Route path="/testtable" element={<TestTable />} />
           <Route path="/todobeginner" element={<TodoBeginnerWrapper />} />

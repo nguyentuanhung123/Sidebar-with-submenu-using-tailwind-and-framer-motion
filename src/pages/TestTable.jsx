@@ -32,7 +32,7 @@ const TestTable = () => {
 
     const loadData = async () => {
         try {
-            const response = await axios.get("http://localhost:3006/employee");
+            const response = await axios.get("http://localhost:3006/employees");
             setEmployee(response.data);
         } catch (error) {
             console.error("Error fetching data:", error);
@@ -115,7 +115,7 @@ const TestTable = () => {
             if (popupDelete.show && popupDelete.id) {
 
                 // Make a DELETE request to the server's endpoint for deleting an employee
-                await axios.delete(`http://localhost:3006/employee/${popupDelete.id}`);
+                await axios.delete(`http://localhost:3006/employees/${popupDelete.id}`);
 
                 // If the request is successful, you can update your UI or state
                 alert(`Successfully deleted employee with id: ${popupDelete.id}`);
@@ -144,7 +144,7 @@ const TestTable = () => {
     //         }
 
     //         // Make a DELETE request to the server's endpoint for deleting an employee
-    //         await axios.delete(`http://localhost:3006/employee/${id}`);
+    //         await axios.delete(`http://localhost:3006/employees/${id}`);
 
     //         // If the request is successful, you can update your UI or state
     //         alert(`Successfully deleted employee with id: ${id}`);
