@@ -32,10 +32,15 @@ const TestTable = () => {
 
     const loadData = async () => {
         try {
+            // Fetch data using Axios
             const response = await axios.get("http://localhost:3006/employees");
             setEmployee(response.data);
+
         } catch (error) {
             console.error("Error fetching data:", error);
+        } finally {
+            // Set isLoading to false after fetching data (whether successful or not)
+            setLoading(false);
         }
     };
 
@@ -43,10 +48,9 @@ const TestTable = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            setLoading(false)
             loadData();
         }, 3000)
-    }, []);
+    }, []); // Empty dependency array to run the effect only once on component mount
 
     const columns = useMemo(() =>
         [
