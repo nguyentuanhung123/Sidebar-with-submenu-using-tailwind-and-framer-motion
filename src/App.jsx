@@ -19,6 +19,7 @@ import PaginationTable from "./pages/PaginationTable.jsx";
 import UpdateTodo from "./pages/UpdateTodo/UpdateTodo.jsx";
 import RowSelection from "./pages/RowSelection.jsx";
 import ColumnOrder from "./pages/ColumnOrder.jsx";
+import ColumnHiding from "./pages/ColumnHiding.jsx";
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/paginationtable" element={<PaginationTable />} />
           <Route path="/rowselection" element={<RowSelection />} />
           <Route path="/columnorder" element={<ColumnOrder />} />
+          <Route path="/columnhiding" element={<ColumnHiding />} />
           <Route path="/formatdate" element={<FormatDate />} />
           <Route path="/testtable" element={<TestTable />} />
           <Route path="/todobeginner" element={<TodoBeginnerWrapper />} />

@@ -62,8 +62,12 @@ const TodoBeginnerWrappper = () => {
         // Do chúng ta đã để mặc định là [] nên khi refresh todos trong localStorage mà chúng ta đã thêm sẽ bị update (set) là rỗng
         // Giải pháp khi todos sắp bị update là một mảng rỗng thì ta sẽ thêm đoạn code bên dưới hàm useEffect sẽ không được chạy và hàm localStorage sẽ giữ nguyên trạng thái như lúc ban đầu chúng ta đã thêm
         // => Nó sẽ không set lại todos mà chúng ta đã lưu trong localStorage do todos sắp bị thay đổi thành mảng rỗng
-        if (todos.length === 0) return;
-        localStorage.setItem('todos', JSON.stringify(todos)) // hàm này sẽ không được chạy nếu ta update todos là một mảng rỗng
+
+        // if (todos.length === 0) {
+        //     return;
+        // }
+        //localStorage.setItem('todos', JSON.stringify(todos)) // hàm này sẽ không được chạy nếu ta update todos là một mảng rỗng
+
     }, [todos])
 
     useEffect(() => {
