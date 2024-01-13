@@ -160,6 +160,10 @@ const Sidebar = () => {
             icon: RiBuilding3Line,
         },
         {
+            name: "stickytable",
+            icon: RiBuilding3Line,
+        },
+        {
             name: "analytics",
             icon: TbReportAnalytics,
             menus: ["dashboard", "realtime", "events"],

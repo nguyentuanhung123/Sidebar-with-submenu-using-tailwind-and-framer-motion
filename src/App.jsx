@@ -20,6 +20,7 @@ import UpdateTodo from "./pages/UpdateTodo/UpdateTodo.jsx";
 import RowSelection from "./pages/RowSelection.jsx";
 import ColumnOrder from "./pages/ColumnOrder.jsx";
 import ColumnHiding from "./pages/ColumnHiding.jsx";
+import StickyTable from "./pages/StickyTable.jsx";
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/rowselection" element={<RowSelection />} />
           <Route path="/columnorder" element={<ColumnOrder />} />
           <Route path="/columnhiding" element={<ColumnHiding />} />
+          <Route path="/stickytable" element={<StickyTable />} />
           <Route path="/formatdate" element={<FormatDate />} />
           <Route path="/testtable" element={<TestTable />} />
           <Route path="/todobeginner" element={<TodoBeginnerWrapper />} />
